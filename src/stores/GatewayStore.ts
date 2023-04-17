@@ -131,7 +131,7 @@ class GatewayStore extends EventEmitter {
         callbackFunc: (resp: any) => void,
     ) => {
         axios.get(
-            `http://localhost:8000/${endpoint}`, {
+            `http://0.0.0.0:8000/${endpoint}`, {
                 headers: {
                     'API_KEY': process.env.REACT_APP_API_KEY
                 }

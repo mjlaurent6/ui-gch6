@@ -48,7 +48,7 @@ class AzureServiceBusCard extends Component<IProps> {
         <Card
           title="Azure Service-Bus"
           className="integration-card"
-          cover={<img alt="Azure Service-Bus" src="/home/mjlaurent/WebstormProjects/ui-gch6/public/integrations/azure_service_bus.png" style={{ padding: 1 }} />}
+          cover={<img alt="Azure Service-Bus" src="/integrations/azure_service_bus.png" style={{ padding: 1 }} />}
           actions={actions}
         >
           <Card.Meta description="The Azure Service-Bus integration forwards events to an Azure Service-Bus topic or queue." />

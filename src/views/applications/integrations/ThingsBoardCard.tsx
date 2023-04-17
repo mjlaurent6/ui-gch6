@@ -48,7 +48,7 @@ class ThingsBoardCard extends Component<IProps> {
         <Card
           title="ThingsBoard"
           className="integration-card"
-          cover={<img alt="ThingsBoard" src="/home/mjlaurent/WebstormProjects/ui-gch6/public/integrations/thingsboard.png" style={{ padding: 1 }} />}
+          cover={<img alt="ThingsBoard" src="/integrations/thingsboard.png" style={{ padding: 1 }} />}
           actions={actions}
         >
           <Card.Meta description="The ThingsBoard integration forwards events to a ThingsBoard instance." />

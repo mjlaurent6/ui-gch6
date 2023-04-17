@@ -154,7 +154,7 @@ class Header extends Component<IProps, IState> {
 
     return (
       <div>
-        <img className="logo" alt="ChirpStack" src="/home/mjlaurent/WebstormProjects/ui-gch6/public/logo.png" />
+        <img className="logo" alt="ChirpStack" src="/logo.png" />
         <div className="actions">
           <div className="search">
             <AutoComplete

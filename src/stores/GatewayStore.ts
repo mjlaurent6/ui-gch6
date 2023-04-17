@@ -1,143 +1,159 @@
-import { notification } from "antd";
-import { EventEmitter } from "events";
-import { GatewayServiceClient } from "@chirpstack/chirpstack-api-grpc-web/api/gateway_grpc_web_pb";
+import {notification} from "antd";
+import {EventEmitter} from "events";
+import {GatewayServiceClient} from "@chirpstack/chirpstack-api-grpc-web/api/gateway_grpc_web_pb";
 import {
-  CreateGatewayRequest,
-  GetGatewayRequest,
-  GetGatewayResponse,
-  UpdateGatewayRequest,
-  DeleteGatewayRequest,
-  ListGatewaysRequest,
-  ListGatewaysResponse,
-  GetGatewayMetricsRequest,
-  GetGatewayMetricsResponse,
-  GenerateGatewayClientCertificateRequest,
-  GenerateGatewayClientCertificateResponse,
+    CreateGatewayRequest,
+    GetGatewayRequest,
+    GetGatewayResponse,
+    UpdateGatewayRequest,
+    DeleteGatewayRequest,
+    ListGatewaysRequest,
+    ListGatewaysResponse,
+    GetGatewayMetricsRequest,
+    GetGatewayMetricsResponse,
+    GenerateGatewayClientCertificateRequest,
+    GenerateGatewayClientCertificateResponse,
 } from "@chirpstack/chirpstack-api-grpc-web/api/gateway_pb";
 
 import SessionStore from "./SessionStore";
-import { HandleError } from "./helpers";
+import {HandleError} from "./helpers";
 import * as mqtt from "mqtt";
 import {callback} from "chart.js/helpers";
 import {stringify} from "querystring";
+import axios from "axios";
+import {TDeviceUpLink} from "./DeviceStore";
 
 class GatewayStore extends EventEmitter {
-  client: GatewayServiceClient;
+    client: GatewayServiceClient;
 
-  constructor() {
-    super();
-    this.client = new GatewayServiceClient("");
-  }
+    constructor() {
+        super();
+        this.client = new GatewayServiceClient("");
+    }
 
-  create = (req: CreateGatewayRequest, callbackFunc: () => void) => {
-    this.client.create(req, SessionStore.getMetadata(), err => {
-      if (err !== null) {
-        HandleError(err);
-        return;
-      }
+    create = (req: CreateGatewayRequest, callbackFunc: () => void) => {
+        this.client.create(req, SessionStore.getMetadata(), err => {
+            if (err !== null) {
+                HandleError(err);
+                return;
+            }
 
-      notification.success({
-        message: "Gateway created",
-        duration: 3,
-      });
+            notification.success({
+                message: "Gateway created",
+                duration: 3,
+            });
 
-      callbackFunc();
-    });
-  };
+            callbackFunc();
+        });
+    };
 
-  get = (req: GetGatewayRequest, callbackFunc: (resp: GetGatewayResponse) => void) => {
-    this.client.get(req, SessionStore.getMetadata(), (err, resp) => {
-      if (err !== null) {
-        HandleError(err);
-        return;
-      }
+    get = (req: GetGatewayRequest, callbackFunc: (resp: GetGatewayResponse) => void) => {
+        this.client.get(req, SessionStore.getMetadata(), (err, resp) => {
+            if (err !== null) {
+                HandleError(err);
+                return;
+            }
 
-      callbackFunc(resp);
-    });
-  };
+            callbackFunc(resp);
+        });
+    };
 
-  update = (req: UpdateGatewayRequest, callbackFunc: () => void) => {
-    this.client.update(req, SessionStore.getMetadata(), err => {
-      if (err !== null) {
-        HandleError(err);
-        return;
-      }
+    update = (req: UpdateGatewayRequest, callbackFunc: () => void) => {
+        this.client.update(req, SessionStore.getMetadata(), err => {
+            if (err !== null) {
+                HandleError(err);
+                return;
+            }
 
-      notification.success({
-        message: "Gateway updated",
-        duration: 3,
-      });
+            notification.success({
+                message: "Gateway updated",
+                duration: 3,
+            });
 
-      callbackFunc();
-    });
-  };
+            callbackFunc();
+        });
+    };
 
-  delete = (req: DeleteGatewayRequest, callbackFunc: () => void) => {
-    this.client.delete(req, SessionStore.getMetadata(), err => {
-      if (err !== null) {
-        HandleError(err);
-        return;
-      }
+    delete = (req: DeleteGatewayRequest, callbackFunc: () => void) => {
+        this.client.delete(req, SessionStore.getMetadata(), err => {
+            if (err !== null) {
+                HandleError(err);
+                return;
+            }
 
-      notification.success({
-        message: "Gateway deleted",
-        duration: 3,
-      });
+            notification.success({
+                message: "Gateway deleted",
+                duration: 3,
+            });
 
-      callbackFunc();
-    });
-  };
+            callbackFunc();
+        });
+    };
 
-  list = (req: ListGatewaysRequest, callbackFunc: (resp: ListGatewaysResponse) => void) => {
-    this.client.list(req, SessionStore.getMetadata(), (err, resp) => {
-      if (err !== null) {
-        HandleError(err);
-        return;
-      }
+    list = (req: ListGatewaysRequest, callbackFunc: (resp: ListGatewaysResponse) => void) => {
+        this.client.list(req, SessionStore.getMetadata(), (err, resp) => {
+            if (err !== null) {
+                HandleError(err);
+                return;
+            }
 
-      callbackFunc(resp);
-    });
-  };
+            callbackFunc(resp);
+        });
+    };
 
-  getMetrics = (req: GetGatewayMetricsRequest, callbackFunc: (resp: GetGatewayMetricsResponse) => void) => {
-    this.client.getMetrics(req, SessionStore.getMetadata(), (err, resp) => {
-      if (err !== null) {
-        HandleError(err);
-        return;
-      }
+    getMetrics = (req: GetGatewayMetricsRequest, callbackFunc: (resp: GetGatewayMetricsResponse) => void) => {
+        this.client.getMetrics(req, SessionStore.getMetadata(), (err, resp) => {
+            if (err !== null) {
+                HandleError(err);
+                return;
+            }
 
-      callbackFunc(resp);
-    });
-  };
+            callbackFunc(resp);
+        });
+    };
 
-  generateClientCertificate = (
-    req: GenerateGatewayClientCertificateRequest,
-    callbackFunc: (resp: GenerateGatewayClientCertificateResponse) => void,
-  ) => {
-    this.client.generateClientCertificate(req, SessionStore.getMetadata(), (err, resp) => {
-      if (err !== null) {
-        HandleError(err);
-        return;
-      }
+    generateClientCertificate = (
+        req: GenerateGatewayClientCertificateRequest,
+        callbackFunc: (resp: GenerateGatewayClientCertificateResponse) => void,
+    ) => {
+        this.client.generateClientCertificate(req, SessionStore.getMetadata(), (err, resp) => {
+            if (err !== null) {
+                HandleError(err);
+                return;
+            }
 
-      callbackFunc(resp);
-    });
-  };
+            callbackFunc(resp);
+        });
+    };
 
-  sendRemoteMessage = async (
-      topic: string,
-      callbackFunc: (resp: any) => void,
-  ) => {
+    sendRemoteMessage = async (
+        endpoint: string,
+        callbackFunc: (resp: any) => void,
+    ) => {
+        axios.get(
+            `http://localhost:8000/${endpoint}`, {
+                headers: {
+                    'API_KEY': process.env.REACT_APP_API_KEY
+                }
+            })
+            .then((res) => {
+                // @ts-ignore
+                callbackFunc(res.data);
+                notification.success({
+                  message: "Command send",
+                  duration: 3,
+                });
+            })
+            .catch((err) => {
+                callbackFunc(JSON.stringify(err.response.data, null, 2))
+                notification.error({
+                    message: "Command failed, see logs for details",
+                    duration: 3,
+                });
+            })
 
-    notification.success({
-      message: "Command Send: " + topic,
-      duration: 3,
-    });
-    const response = {'status': 'ok'};
-    setTimeout(()=>{
-      callbackFunc(JSON.stringify(response, null, 2));
-    } , 3000);
-  }
+
+    }
 }
 
 const gatewayStore = new GatewayStore();

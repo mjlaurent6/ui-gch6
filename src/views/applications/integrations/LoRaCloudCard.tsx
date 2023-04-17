@@ -45,7 +45,7 @@ class LoRaCloudCard extends Component<IProps> {
         <Card
           title="Semtech LoRa Cloud&trade;"
           className="integration-card"
-          cover={<img alt="Semtech LoRa Cloud" src="/home/mjlaurent/WebstormProjects/ui-gch6/public/integrations/loracloud.png" style={{ padding: 1 }} />}
+          cover={<img alt="Semtech LoRa Cloud" src="/integrations/loracloud.png" style={{ padding: 1 }} />}
           actions={actions}
         >
           <Card.Meta description="The Semtech LoRa Cloud integration provides Modem & Geolocation Services." />

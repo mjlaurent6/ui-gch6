@@ -18,7 +18,7 @@ class HttpCard extends Component<IProps> {
         <Card
           title="MQTT"
           className="integration-card"
-          cover={<img alt="MQTT" src="/home/mjlaurent/WebstormProjects/ui-gch6/public/integrations/mqtt.png" style={{ padding: 1 }} />}
+          cover={<img alt="MQTT" src="/integrations/mqtt.png" style={{ padding: 1 }} />}
           actions={actions}
         >
           <Card.Meta description="The MQTT integration forwards events to a MQTT broker." />

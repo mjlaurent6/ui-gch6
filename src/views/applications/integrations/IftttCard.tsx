@@ -45,7 +45,7 @@ class IftttCard extends Component<IProps> {
         <Card
           title="IFTTT"
           className="integration-card"
-          cover={<img alt="IFTTT" src="/home/mjlaurent/WebstormProjects/ui-gch6/public/integrations/ifttt.png" style={{ padding: 1 }} />}
+          cover={<img alt="IFTTT" src="/integrations/ifttt.png" style={{ padding: 1 }} />}
           actions={actions}
         >
           <Card.Meta description="The IFTTT integration forwards events to the IFTTT Webhooks integration." />

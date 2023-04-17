@@ -45,7 +45,7 @@ class GcpPubSubCard extends Component<IProps> {
         <Card
           title="GCP Pub/Sub"
           className="integration-card"
-          cover={<img alt="GCP Pub/Sub" src="/home/mjlaurent/WebstormProjects/ui-gch6/public/integrations/gcp_pubsub.png" style={{ padding: 1 }} />}
+          cover={<img alt="GCP Pub/Sub" src="integrations/gcp_pubsub.png" style={{ padding: 1 }} />}
           actions={actions}
         >
           <Card.Meta description="The Google Cloud Pub/Sub integration forwards events to a GCP Pub/Sub topic." />

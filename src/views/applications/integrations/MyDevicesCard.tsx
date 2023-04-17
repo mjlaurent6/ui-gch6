@@ -45,7 +45,7 @@ class MyDevicesCard extends Component<IProps> {
         <Card
           title="myDevices"
           className="integration-card"
-          cover={<img alt="myDevices" src="/home/mjlaurent/WebstormProjects/ui-gch6/public/integrations/my_devices.png" style={{ padding: 1 }} />}
+          cover={<img alt="myDevices" src="/integrations/my_devices.png" style={{ padding: 1 }} />}
           actions={actions}
         >
           <Card.Meta description="The myDevices integration forwards events to the myDevices platform." />

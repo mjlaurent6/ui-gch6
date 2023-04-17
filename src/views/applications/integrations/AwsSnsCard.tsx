@@ -46,7 +46,7 @@ class AwsSns extends Component<IProps> {
         <Card
           title="AWS SNS"
           className="integration-card"
-          cover={<img alt="AWS SNS" src="/home/mjlaurent/WebstormProjects/ui-gch6/public/integrations/aws_sns.png" style={{ padding: 1 }} />}
+          cover={<img alt="AWS SNS" src="/integrations/aws_sns.png" style={{ padding: 1 }} />}
           actions={actions}
         >
           <Card.Meta description="The AWS SNS integration forwards events to an AWS SNS topic." />

@@ -45,7 +45,7 @@ class InfluxdbCard extends Component<IProps> {
         <Card
           title="InfluxDB"
           className="integration-card"
-          cover={<img alt="InfluxDB" src="/home/mjlaurent/WebstormProjects/ui-gch6/public/integrations/influxdb.png" style={{ padding: 1 }} />}
+          cover={<img alt="InfluxDB" src="/integrations/influxdb.png" style={{ padding: 1 }} />}
           actions={actions}
         >
           <Card.Meta description="The InfluxDB integration writes events into an InfluxDB time-series database." />

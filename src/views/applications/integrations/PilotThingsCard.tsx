@@ -48,7 +48,7 @@ class PilotThingsCard extends Component<IProps> {
         <Card
           title="Pilot Things"
           className="integration-card"
-          cover={<img alt="Pilot Things" src="/home/mjlaurent/WebstormProjects/ui-gch6/public/integrations/pilot_things.png" style={{ padding: 1 }} />}
+          cover={<img alt="Pilot Things" src="/integrations/pilot_things.png" style={{ padding: 1 }} />}
           actions={actions}
         >
           <Card.Meta description="The Pilot Things integration forwards messages to a Pilot Things instance." />

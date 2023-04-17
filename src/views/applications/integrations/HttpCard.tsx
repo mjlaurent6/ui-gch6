@@ -45,7 +45,7 @@ class HttpCard extends Component<IProps> {
         <Card
           title="HTTP"
           className="integration-card"
-          cover={<img alt="HTTP" src="/home/mjlaurent/WebstormProjects/ui-gch6/public/integrations/http.png" style={{ padding: 1 }} />}
+          cover={<img alt="HTTP" src="/integrations/http.png" style={{ padding: 1 }} />}
           actions={actions}
         >
           <Card.Meta description="The HTTP integration forwards events to a user-configurable endpoint as POST requests." />

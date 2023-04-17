@@ -295,7 +295,6 @@ class DeviceStore extends EventEmitter {
         queryLimit: number,
         callbackFunc: (data: DeviceSearchUpLink[]) => void
     ) => {
-        console.log(process.env.REACT_APP_API_KEY)
         axios.get<TDeviceUpLink>(
             `http://localhost:8000/localization/distance?device_eui=${deviceEui}&limit=${queryLimit}`, {
                 headers: {

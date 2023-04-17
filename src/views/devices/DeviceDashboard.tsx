@@ -218,7 +218,6 @@ class DeviceDashboard extends Component<IProps, IState> {
           <Tabs.TabPane tab="Link metrics" key="1">
             <Space direction="vertical" style={{ width: "100%" }} size="large">
               <Row gutter={24}>
-                {console.log(this.state.deviceLinkMetrics.getGwRssi())}
                 <Col span={8}>
                   <MetricChart
                     metric={this.state.deviceLinkMetrics.getRxPackets()!}

@@ -235,7 +235,6 @@ class DeviceSearch extends Component<IProps, IState> {
                         'label': (new Date(item.time)).toString(),
                     });
                 })
-                console.log(data);
                 this.setState({
                     loading: false,
                     queryLimit: 5,

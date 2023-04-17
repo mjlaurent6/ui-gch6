@@ -87,7 +87,6 @@ class GatewayDashboard extends Component<IProps, IState> {
 
     return (
       <Space direction="vertical" style={{ width: "100%" }} size="large">
-        {console.log(this.state.gatewayMetrics)}
         <Card>
           <Descriptions>
             <Descriptions.Item label="Last seen">{lastSeenAt}</Descriptions.Item>
